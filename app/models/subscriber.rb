@@ -16,10 +16,19 @@ class Subscriber < ActiveRecord::Base
     false
   end
   
-  def payment
+  def payment(plan_id)
     if valid?
-      customer = Stripe::Customer.retrieve(self.stripe_customer_token)
-      Stripe::Charge.create(:amount => 3500, :currency => "usd", :customer => customer.id)
+      customer = Stripe::Customer.retrieve(self.stripe_customer_token)     
+      if plan_id == 1
+        amount = 6500
+      elsif plan_id == 2
+        amount = 7900
+      elsif plan_id == 3
+        amount = 5600
+      elsif plan_id == 4
+        amount = 7700
+      end
+      Stripe::Charge.create(:amount => amount, :currency => "usd", :customer => customer.id)
     end
   rescue Stripe::InvalidRequestError => e
     logger.error "Stripe error while creating customer: #{e.message}"

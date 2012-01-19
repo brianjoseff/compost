@@ -27,6 +27,7 @@ gem 'stripe'
 gem 'haml'
 gem 'heroku'
 gem 'whenever', :require => false
+gem 'clearance'
 
 # Use unicorn as the web server
 # gem 'unicorn'

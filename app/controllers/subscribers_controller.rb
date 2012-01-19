@@ -1,6 +1,6 @@
 class SubscribersController < ApplicationController
-  # GET /subscribers
-  # GET /subscribers.json
+  before_filter :admin_user, :except => [:new, :create, :show]
+
   def index
     @subscribers = Subscriber.all
 
@@ -44,7 +44,7 @@ class SubscribersController < ApplicationController
     @subscriber = Subscriber.new(params[:subscriber])
     if @subscriber.save_with_payment
       if @subscriber.doesnt_need_bin == false
-        @subscriber.payment
+        @subscriber.payment(@subscriber.plan_id)
       end
       redirect_to @subscriber, :notice => "Thank you for subscribing!"
       

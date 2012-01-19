@@ -1,3 +1,4 @@
+User.create!(:name => "brian", :email => "brian.joseff.14@dartmouth.edu", :password => "000000", :admin => true)
 Plan.create!(:name => "Once a Week & Your Own Bin", :price => 5)
 Plan.create!(:name => "Twice a Week & Your Own Bin", :price => 8)
 Plan.create!(:name => "Once a Week & Borrow-a-Bin", :price => 7)

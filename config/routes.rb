@@ -2,6 +2,9 @@ Compost::Application.routes.draw do
   root :to => 'plans#index'
   resources :plans
   resources :subscribers
+  resources :sessions, :only => [:new, :create, :destroy]
+  match '/signout', :to => 'sessions#destroy'
+  match '/signin', :to => 'sessions#new'
   match "about", :to => "pages#about"
   # The priority is based upon order of creation:
   # first created -> highest priority.

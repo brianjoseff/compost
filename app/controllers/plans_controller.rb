@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
-  # GET /plans
-  # GET /plans.json
+  before_filter :admin_user, :except => [:index]
+  
   def index
     @plans = Plan.all
 
