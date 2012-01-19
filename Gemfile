@@ -26,6 +26,8 @@ gem 'jquery-rails'
 gem 'stripe'
 gem 'haml'
 gem 'heroku'
+gem 'whenever', :require => false
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

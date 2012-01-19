@@ -70,6 +70,13 @@ form label {
 form .field, form .actions {
   margin: 12px 0;
 }
+form .checkbox {
+	display:inline;
+	margin-bottom:0px;
+}
+form .checkbox input{
+	float:left;
+}
 
 .fieldWithErrors {
   display: inline;
