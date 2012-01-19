@@ -1,0 +1,56 @@
+= form_for(@subscriber) do |f|
+  %h1= @plan.name
+  =link_to "back to plans", root_path
+  -if @plan.id == 1
+    %h4 signing up for this plan includes a compost bin (unless you check the box below) and gives you 7 weeks of compost pick up, totaling $65.
+  -elsif  @plan.id == 2
+    %h4 signing up for this plan includes a compost bin (unless you check the box below) and gives you 7 weeks of compost pick up, twice a week, totaling $79.
+  -elsif  @plan.id == 3
+    %h4 signing up for this plan gives you 7 weeks of compost pick up using a bin that I will let you borrow, totaling $56.
+    -# There's really no reason to use this plan, you might as well get your own since I'm buying them all anyway. "Borrowing" in this case does not up your sustainability street cred or anything because they are all going to be new. #{link_to "Return to list of plans.", root_path}
+  -elsif  @plan.id == 4
+    %h4 signing up for this plan gives you 7 weeks of compost pick up, twice a week, using a bin that I will let you borrow, totaling $77.
+    -# There's really no reason to use this plan, you might as well get your own since I'm buying them all anyway. "Borrowing" in this case does not up your sustainability street cred or anything because they are all going to be new. #{link_to "Return to list of plans.", root_path}
+  - if @subscriber.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@subscriber.errors.count, "error")
+        prohibited this subscriber from being saved:
+      %ul
+        - @subscriber.errors.full_messages.each do |msg|
+          %li= msg
+  = f.hidden_field :plan_id
+  = f.hidden_field :stripe_card_token
+  -if @plan.id == 1 || @plan.id == 2
+    = render "compost_info"
+    #checkbox
+      = f.label "I already have a compost container of some sort"
+      = f.check_box :doesnt_need_bin
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :email
+    = f.text_field :email
+
+  / .field
+  /   = f.label :cash
+  /   %br/
+  /   = f.check_box :cash
+  - if @subscriber.stripe_card_token.present?
+    Credit card has been provided.
+  - else
+    .field
+      = label_tag :card_number, "Credit Card Number"
+      = text_field_tag :card_number, nil, :name => nil
+    .field
+      = label_tag :card_code, "Security Code on Card (CVV)"
+      = text_field_tag :card_code, nil, :name => nil
+    .field
+      = label_tag :card_month, "Card Expiration"
+      = select_month nil, {:add_month_numbers => true}, {:name => nil, :id => "card_month"}
+      = select_year nil, {:start_year => Date.today.year, :end_year => Date.today.year+15}, {:name => nil, :id => "card_year"}
+  #stripe_error
+    %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
+  .actions
+    = f.submit "Subscribe"

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @subscriber.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @subscriber.email %>
+</p>
+
+<p>
+  <b>Doesnt need bin:</b>
+  <%= @subscriber.doesnt_need_bin %>
+</p>
+
+<p>
+  <b>Plan:</b>
+  <%= @subscriber.plan_id %>
+</p>
+
+<p>
+  <b>Stripe customer token:</b>
+  <%= @subscriber.stripe_customer_token %>
+</p>
+
+<p>
+  <b>Cash:</b>
+  <%= @subscriber.cash %>
+</p>
+
+
+<%= link_to 'Edit', edit_subscriber_path(@subscriber) %> |
+<%= link_to 'Back', subscribers_path %>

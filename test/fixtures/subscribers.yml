@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  email: MyString
+  doesnt_need_bin: false
+  plan_id: 1
+  stripe_customer_token: MyString
+  cash: false
+
+two:
+  name: MyString
+  email: MyString
+  doesnt_need_bin: false
+  plan_id: 1
+  stripe_customer_token: MyString
+  cash: false

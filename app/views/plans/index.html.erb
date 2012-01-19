@@ -1,0 +1,36 @@
+<div id="plans">
+  <div class="dog">  
+    <h1>Dos Compost</h1>
+    <a href="#"></a>
+  </div>
+  <div class="clear"></div>
+  <h4> I will come get your compost and dispose of it</h4>
+  <div class="intro"><p>Last year, my roommates and I got a compost bin for our Fahey dorm room, and it was surprisingly useful. We produced almost zero waste by recycling and composting. The only problem was getting rid of the compost. That's where "Dos Compost" enters the scene, stage right.</p>
+  <p>This is a compost retrieval service. There are basically two decisions to make: 1. do you want your compost picked up once or twice a week. 2. do you want to buy your own compost bin through me or pay higher weekly fees to borrow one.</p></div>
+  <h3>When 100 people sign up I will lower the prices. Get your friends, acquaintances, etc.</h3>
+
+  <% @plans.each do |plan| %>
+  <div class="plan">
+    <div class="name"><%= plan.name %></div>
+    <div class="details">
+      <div class="price">
+        <%= number_to_currency plan.price, :precision => 0 %>
+      </div>
+      <div class="per_month">per week</div>
+      <div class="when">
+        <%if plan.id ==1 || plan.id == 3%>
+          <p>I'll come pick your compost up on Monday morning</p>
+        <%else%>
+          <p>I'll come pick up your compost on Monday and Friday morning</p>
+        <%end%>
+      </div>
+      <div class="signup">
+        <%= link_to "Sign up", new_subscriber_path(:plan_id => plan.id) %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="clear"></div>
+  <p>do it for the kids.</p>
+</div>
