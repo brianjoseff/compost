@@ -2,14 +2,14 @@
   %h1= @plan.name
   =link_to "back to plans", root_path
   -if @plan.id == 1
-    %h4 signing up for this plan includes a compost bin (unless you check the box below) and gives you 7 weeks of compost pick up, totaling $65.
+    %h4 signing up for this plan includes a compost bin (unless you check the box below) and gives you 7 weeks of compost pick up, $5 x 7 weeks + $30 = $65.
   -elsif  @plan.id == 2
-    %h4 signing up for this plan includes a compost bin (unless you check the box below) and gives you 7 weeks of compost pick up, twice a week, totaling $79.
+    %h4 signing up for this plan includes a compost bin (unless you check the box below) and gives you 7 weeks of compost pick up, twice a week, $8 x 7 weeks + $30 = $79.
   -elsif  @plan.id == 3
-    %h4 signing up for this plan gives you 7 weeks of compost pick up using a bin that I will let you borrow, totaling $56.
+    %h4 signing up for this plan gives you 7 weeks of compost pick up using a bin that I will let you borrow, $8 x 7 weeks = $56.
     -# There's really no reason to use this plan, you might as well get your own since I'm buying them all anyway. "Borrowing" in this case does not up your sustainability street cred or anything because they are all going to be new. #{link_to "Return to list of plans.", root_path}
   -elsif  @plan.id == 4
-    %h4 signing up for this plan gives you 7 weeks of compost pick up, twice a week, using a bin that I will let you borrow, totaling $77.
+    %h4 signing up for this plan gives you 7 weeks of compost pick up, twice a week, using a bin that I will let you borrow, $11 x 7 weeks = $77.
     -# There's really no reason to use this plan, you might as well get your own since I'm buying them all anyway. "Borrowing" in this case does not up your sustainability street cred or anything because they are all going to be new. #{link_to "Return to list of plans.", root_path}
   - if @subscriber.errors.any?
     #error_explanation
@@ -34,7 +34,7 @@
     = f.label :email
     = f.text_field :email
   .field
-    = f.label :building
+    = f.label :building, "Building Name (I just took this list from LaundryView's website, so if yours isn't on here, write it in the room number field)"
     = f.collection_select( :building_id, Building.all, :id, :name)
     =f.label :room_number
     =f.text_field :room_number

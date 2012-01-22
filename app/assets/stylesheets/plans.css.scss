@@ -13,11 +13,9 @@
   width: 700px;
   .dog {
     margin-bottom: 60px;
-    h1 {
-      font-size: 65px;
-      font-family: Georgia, Times;
-      float:left;
-      width: 400px
+    img {
+    background-image: image-url("doscompost.jpg");  
+    float:left;  
     }
     a{
       margin-top: 80px;
