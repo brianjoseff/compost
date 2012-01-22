@@ -6,6 +6,7 @@ Compost::Application.routes.draw do
   match '/signout', :to => 'sessions#destroy'
   match '/signin', :to => 'sessions#new'
   match "about", :to => "pages#about"
+  match "faq", :to => "pages#faq"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,3 +1,43 @@
 #about{
+  background-image: image-url("dog2.jpg");
+  background-repeat: no-repeat;
+  # background-position: 480px -10px;
   
+  margin: 0 auto;
+  padding-left: 25px;
+  padding-top: 20px;
+  margin-bottom: 10px;
+  width: 700px;
+  .dog {
+    margin-bottom: 60px;
+    img {
+    background-image: image-url("doscompost.jpg");  
+    float:left;  
+    }
+    a{
+      margin-top: 80px;
+      float:right;
+      background:transparent;
+      width: 300px;
+      height: 150px;
+      display:block;
+    }
+    a:hover{
+      float:right;
+      text-decoration: none;
+      background-image: image-url("dog2-text.png");
+      background-repeat: no-repeat;
+      display:block;
+      width: 300px;
+      height: 150px;
+    }
+  }
+  .intro{
+    p,h4,ul,li {
+      width: 600px
+    }
+  }
+  h4 {
+    width: 550px
+  }
 }

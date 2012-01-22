@@ -127,7 +127,11 @@ nav li {
 }
 
 nav a {
+	color: #696969;
 	text-decoration:none;
 	font-weight:bold;
 	display:block;
+}
+nav a:hover {
+	color: #b6b6b6;
 }
