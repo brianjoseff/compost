@@ -28,6 +28,7 @@ gem 'haml'
 gem 'heroku'
 gem 'whenever', :require => false
 gem 'clearance'
+gem "mail"
 
 # Use unicorn as the web server
 # gem 'unicorn'

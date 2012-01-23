@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #plans {
-  background-image: image-url("dog2.jpg");
-  background-repeat: no-repeat;
+  # background-image: image-url("dog2.jpg");
+  # background-repeat: no-repeat;
   # background-position: 480px -10px;
   
   margin: 0 auto;
@@ -12,31 +12,30 @@
   margin-bottom: 10px;
   width: 700px;
   .dog {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     img {
-    background-image: image-url("doscompost.jpg");  
-    float:left;  
+    float:left;
     }
     a{
-      margin-top: 80px;
+      color: #fff;
       float:right;
-      background:transparent;
+      background-image: image-url("compostbin.jpg");
       width: 300px;
-      height: 150px;
+      height: 230px;
       display:block;
     }
     a:hover{
       float:right;
       text-decoration: none;
-      background-image: image-url("dog2-text.png");
+      background-image: image-url("compostbin-hover.jpg");
       background-repeat: no-repeat;
       display:block;
       width: 300px;
-      height: 150px;
-    }
+      height: 230px;
+    }  
   }
   .intro{
-    p {
+    p,li,ul {
       width: 600px
     }
   }
@@ -47,11 +46,13 @@
     float: left;
     max-width: 150px;
     min-height: 200px;
+    
     text-align: center;
     margin-right: 10px;
-    margin-bottom: 200px;
+    margin-bottom: 30px;
     .name {
       color: #FFF;
+      min-height: 40px;
       padding: 5px 0;
       border: solid 1px #5B6881;
       border-bottom: none;
@@ -66,9 +67,26 @@
       -moz-border-radius-topleft: 5px;
       -moz-border-radius-topright: 5px;
     }
+    .namegreen{
+      color: #FFF;
+      min-height: 40px;
+      padding: 5px 0;
+      border: solid 1px #5B6881;
+      border-bottom: none;
+      background: #386FB2;
+      background: -webkit-gradient(linear, left top, left bottom, from(#87ef67), to(#4aa42b));
+      background: -moz-linear-gradient(top,  #87ef67,  #4aa42b);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#87ef67', endColorstr='#4aa42b');
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+    }
     .details {
       padding-top: 5px;
-      height: 200px;
+
       border: solid 1px #8D8D8D;
       background-color: #E8F4FD;
       border-top: none;

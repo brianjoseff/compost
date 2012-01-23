@@ -5,6 +5,8 @@ class Subscriber < ActiveRecord::Base
   validates_presence_of :email
   attr_accessor :stripe_card_token
   
+
+  
   def save_with_payment
     if valid?
       customer = Stripe::Customer.create( :description => email, :card => stripe_card_token)
@@ -17,17 +19,17 @@ class Subscriber < ActiveRecord::Base
     false
   end
   
-  def payment(plan_id)
+  def payment(plan_id, weeks)
     if valid?
       customer = Stripe::Customer.retrieve(self.stripe_customer_token)     
       if plan_id == 1
-        amount = 6500
+        amount = weeks*500+2800
       elsif plan_id == 2
-        amount = 7900
+        amount = weeks*800+2800
       elsif plan_id == 3
-        amount = 5600
+        amount = weeks*800
       elsif plan_id == 4
-        amount = 7700
+        amount = weeks*1100
       end
       Stripe::Charge.create(:amount => amount, :currency => "usd", :customer => customer.id)
     end

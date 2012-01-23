@@ -26,7 +26,7 @@ subscriber =
   handleStripeResponse: (status, response) ->
     if status == 200
     # "You will be charged $30 right now for the compost bin, and your subscription will start when you get your bin and I make the first delivery"
-      alert(response.id)
+      # alert(response.id)
       $('#subscriber_stripe_card_token').val(response.id)
       $('#new_subscriber')[0].submit()
     else
